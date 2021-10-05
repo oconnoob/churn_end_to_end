@@ -777,7 +777,7 @@ export const InputForm = ( {onNewPrediction} ) => {
           headers: {"Content-Type": "application/json"},
           body: JSON.stringify(dataToSend)
         }).then(res => {
-          if (!res.ok){throw new Error(res.status)}
+          if (!res.ok){console.log('Prediction fetched unsuccessfully'); throw new Error(res.status)}
           else {console.log('Prediction fetched successfully')};
           return res.json()
         })
@@ -872,7 +872,25 @@ export const InputForm = ( {onNewPrediction} ) => {
           setPrediction('');
 
           setRandDatum(Math.trunc(Math.random() * (12)));
-
+      }}
+    />
+        <Button
+      content='Test'
+      style={{
+        width: "200px",
+        marginLeft: "12em",
+        marginTop: "1em",
+      }}
+      onClick={ async () => {
+        const response = await fetch("/get", {
+          method: "GET",
+          headers: {"Content-Type": "application/json"},
+        }).then(res => {
+          if (!res.ok){console.log('Prediction fetched unsuccessfully'); throw new Error(res.status)}
+          else {console.log('Prediction fetched successfully')};
+          return res.json()
+        })
+          .then(response => console.log(response[0]['payload']));
       }}
     />
     </Form>
