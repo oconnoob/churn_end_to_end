@@ -8,10 +8,10 @@ import pickle
 
 #s3://churne2eproject/models/
 
-SECRET = '+TBhvR/6AmcdQLgloXpIj+SqqyBsNhhl2ZGZBTmP'
-PUBLIC = 'AKIATABDXPVHGT5Q63EP'
+SECRET = '<YOUR_SECRET_KEY>'
+PUBLIC = '<YOUR_PUBLIC_KEY>'
 
-BUCKET_NAME = 'churne2eproject'
+BUCKET_NAME = '<YOUR_BUCKET_NAME>'
 
 MODEL_FILE_NAME = 'model.pickle'
 MODEL_LOCAL_PATH = 'models/' + MODEL_FILE_NAME
